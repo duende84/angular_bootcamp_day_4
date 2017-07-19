@@ -1,0 +1,16 @@
+<div>
+  <label for="name">Article:</label>
+  <input type="text" name="name" [(ngModel)]="article.name" placeholder="name">
+</div>
+<div>
+  <label for="value">Value:</label>
+  <input type="number" name="value" [(ngModel)]="article.value" placeholder="value">
+</div>
+<div>
+  <app-primary-button [value]="'Submit with VAT ' + percentage + '%'" (clickEventEmitter)="clickEvent()"></app-primary-button>
+</div>
+<div *ngIf="taxValue">
+  <p>The {{article.name}} cost {{article.value | currency:'USD':true:'1.2'}}</p>
+  <p>The VAT is {{taxValue | currency:'USD':true:'1.2'}}</p>
+  <p>The total is {{(article.value + taxValue) | currency:'USD':true:'1.2'}}</p>
+</div>
